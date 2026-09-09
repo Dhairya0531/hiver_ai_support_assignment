@@ -1,0 +1,21 @@
+# Environment & Secrets
+.env
+*.env
+
+# Word documents and raw assignment prompts
+*.docx
+Hiver SDE Intern Assignment.docx
+
+# Python artifacts
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Raw cache
+apple_tweets_raw.parquet
