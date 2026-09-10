@@ -30,23 +30,30 @@
 The entire pipeline is self-contained and reproducible without requiring paid API keys or external vector databases.
 
 ```bash
+# Requires Python 3.10+ (google-genai 2.x is incompatible with Python 3.9)
+
 # 1. Clone repository
 git clone https://github.com/Dhairya0531/hiver_ai_support_assignment.git
 cd hiver_ai_support_assignment
 
-# 2. Set up virtual environment
+# 2. Set up virtual environment (use python3.10, python3.11, python3.12, or python3.13)
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-# 3. Run automated tests (0.5s)
+# 3. Run automated tests (< 1s)
 python -m unittest discover tests
 
 # 4. Reproduce headline benchmark evaluation across all 200 Golden Examples (~15s)
 python evaluation/evaluate.py
+
+# 5. (Optional) Try the interactive demo
+python demo.py --tweet "My iPhone battery dies at 20% every day"
 ```
 
-*(Optional: If you wish to run live generation with Google Gemini, simply add `GEMINI_API_KEY=your_key` to a `.env` file.)*
+> **Note:** No API key needed. The pipeline runs fully offline in deterministic benchmark mode.  
+> To enable live Gemini generation, add `GEMINI_API_KEY=your_key` to a `.env` file (see `.env.example`).
+
 
 ---
 

@@ -154,7 +154,11 @@ class GeminiLLMClient:
         query = self._extract_customer_text(prompt)
         q_lower = query.lower()
         
-        from src.taxonomy import ESCALATION_REASONS
+        try:
+            from src.taxonomy import ESCALATION_REASONS
+        except ImportError:
+            from taxonomy import ESCALATION_REASONS  # type: ignore
+
 
         # Intent & Escalation analysis based on customer text
         # 1. Frustrated customer / human escalation request

@@ -9,9 +9,15 @@ Coordinates:
 
 import json
 from typing import Dict, Any, Optional
-from src.taxonomy import INTENT_DEFINITIONS, ALL_INTENTS, ESCALATION_REASONS
-from src.rag import SupportKnowledgeBase
-from src.llm_client import GeminiLLMClient
+
+try:
+    from src.taxonomy import INTENT_DEFINITIONS, ALL_INTENTS, ESCALATION_REASONS
+    from src.rag import SupportKnowledgeBase
+    from src.llm_client import GeminiLLMClient
+except ImportError:
+    from taxonomy import INTENT_DEFINITIONS, ALL_INTENTS, ESCALATION_REASONS  # type: ignore
+    from rag import SupportKnowledgeBase  # type: ignore
+    from llm_client import GeminiLLMClient  # type: ignore
 
 CLASSIFIER_PROMPT_TEMPLATE = """You are the Lead Support Triage AI for Apple Support on Twitter.
 Analyze the following incoming customer tweet and perform two tasks:
