@@ -9,7 +9,13 @@ Evaluates drafted replies across 4 rubric dimensions:
 
 from typing import Dict, Any, Optional
 import json
-from src.llm_client import GeminiLLMClient
+
+try:
+    from src.llm_client import GeminiLLMClient
+except ImportError:
+    import sys, os
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from src.llm_client import GeminiLLMClient  # type: ignore
 
 JUDGE_RUBRIC_PROMPT = """You are an impartial, expert Quality Assurance Judge for Apple Customer Support.
 Evaluate the AI support agent's drafted reply to the customer's inquiry based on the 4 rubric dimensions below.
