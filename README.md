@@ -77,6 +77,8 @@ Benchmarked across **200 hand-curated and stratified Golden Examples** with a st
 | **Judge Reply Quality (1–5 scale)** | 2.75 | 3.55 | **4.30** | **+0.75 pts** |
 | **Average Latency per Query** | 0.1 ms | 0.4 ms | **2.0 ms** | Ultra-low latency |
 
+> **Every number in this table is live-reproducible.** Run `python evaluation/evaluate.py` — all metrics are computed fresh from the 200 golden examples in [`data/golden/golden_set_200.json`](data/golden/golden_set_200.json) and printed to stdout in ~15 seconds. No API key required.
+
 ---
 
 ## 3. System Architecture
